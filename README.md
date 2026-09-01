@@ -44,6 +44,30 @@ s'est réellement passé.
 
 ---
 
+## Call Me Maybe — appel de fonctions par un petit modèle local
+**Python · en solo · avril 2026**
+
+**Le problème.** Traduire une requête en langage naturel — « quelle est la somme de 2 et
+3 ? » — non pas en réponse, mais en **appel de fonction structuré** : le nom de la fonction
+à invoquer et ses arguments typés, en JSON valide. Le tout avec Qwen3-0.6B, un modèle de
+600 millions de paramètres tournant en local.
+
+**La difficulté.** Un modèle de cette taille ne produit du JSON valide qu'environ une fois
+sur trois quand on se contente de le lui demander. Le prompt ne suffit pas : il faut
+contraindre la génération.
+
+**Ce que j'ai construit.** Un décodage sous contrainte, qui guide le modèle jeton par jeton
+pour garantir à chaque étape une sortie structurellement **et** sémantiquement valide — le
+nom de fonction ne peut être qu'un nom existant, un argument numérique ne peut être qu'un
+nombre. La fiabilité passe d'environ 30 % à la quasi-perfection.
+
+**Ce qui a compté.**
+- **Contraindre plutôt que demander.** Espérer d'un modèle qu'il respecte un format est une stratégie ; l'empêcher de produire autre chose en est une autre. Seule la seconde donne des garanties.
+- Un modèle de 0,6 milliard de paramètres tournant sur CPU rend le problème intéressant : sans marge de manœuvre, la structure doit venir du code, pas de la puissance du modèle.
+- C'est le même déplacement que dans Agent Smith : ne jamais faire confiance à la sortie du modèle, toujours la contraindre puis la vérifier.
+
+---
+
 ## RAG against the machine — recherche augmentée
 **Python · en solo · juin 2026**
 
