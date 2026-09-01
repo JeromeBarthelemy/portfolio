@@ -1,13 +1,14 @@
 # Portfolio — Jérôme Barthélemy
 
-Quatre projets, quatre problèmes différents. Le code des rendus École 42 reste privé
-(règle de l'école) ; ce dépôt explique ce qui a été construit, pourquoi, et ce que
-j'en ai tiré. Accès au code sur demande pendant un entretien.
+Six projets, six problèmes différents. Ce dépôt explique ce qui a été construit, pourquoi,
+et ce que j'en ai tiré. Cinq des six pointent vers du code public — il ne contient que mon
+propre travail : sujets, moulinettes et supports pédagogiques appartiennent à l'École 42 et
+n'y figurent pas.
 
 ---
 
 ## TAP — serveur de jeu multijoueur TCP
-**Go · en binôme · juin 2026**
+**Go · en binôme · juin 2026 · [code public](https://github.com/JeromeBarthelemy/tap-server)** — 118 des 145 commits sont les miens
 
 **Le problème.** Faire tenir plusieurs joueurs dans un même monde partagé, via un
 protocole assez précisément spécifié pour que le client d'une autre équipe puisse se
@@ -69,7 +70,7 @@ nombre. La fiabilité passe d'environ 30 % à la quasi-perfection.
 ---
 
 ## RAG against the machine — recherche augmentée
-**Python · en solo · juin 2026**
+**Python · en solo · juin 2026 · [code public](https://github.com/JeromeBarthelemy/RAG)**
 
 **Le problème.** Répondre à des questions sur la base de code vLLM 0.10.1 en citant
 ses sources, avec un modèle assez petit pour tourner sur CPU.
