@@ -62,7 +62,7 @@ interrogé ; le modèle Qwen3-0.6B rédige la réponse à partir des seuls extra
 ---
 
 ## Inception — infrastructure conteneurisée
-**Docker · en solo · juillet 2026**
+**Docker · en solo · juillet 2026 · [code public](https://github.com/JeromeBarthelemy/Inception)**
 
 **Le problème.** Monter une infrastructure web complète sans tirer une seule image
 toute faite du Docker Hub : chaque conteneur construit à la main, un service par conteneur.
