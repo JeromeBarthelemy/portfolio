@@ -26,7 +26,7 @@ dans la salle, un combat commence — sont poussés de façon asynchrone.
 ---
 
 ## Agent Smith — harnais d'agent LLM
-**Python · à trois · août 2026**
+**Python · à trois · août 2026 · [code public](https://github.com/Enelsep/agent-smith)** — 224 des 282 commits sont les miens
 
 **Le problème.** Faire résoudre à un modèle de langage de vraies tâches de programmation
 — écrire une fonction (MBPP), corriger un bug dans un vrai dépôt (SWE-bench) — sans
