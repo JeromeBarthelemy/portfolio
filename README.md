@@ -98,6 +98,22 @@ de l'équipe, que j'encadre.
 - **Le PID individuel par moteur a fini désactivé** : les quatre boucles se battaient entre elles et dégradaient la trajectoire. Un asservissement global de cap, plus simple, s'est révélé plus stable — la solution correcte n'était pas la plus sophistiquée.
 - **Le code est lu et modifié par des lycéens.** Il doit rester compréhensible par quelqu'un qui apprend Java depuis six mois : c'est la contrainte de lisibilité la plus exigeante que j'aie rencontrée.
 
+### Palmarès du club — Robotique CIV
+
+Plus de 70 lycéens, quatre équipes, engagées au Royaume-Uni, en France, aux Pays-Bas et
+aux États-Unis depuis 2019. Résultats vérifiables sur les pages officielles *FIRST*.
+
+| Équipe | Résultats principaux |
+|---|---|
+| [BaguetTechs — FTC 20989](https://ftc-events.firstinspires.org/team/20989) | **Champion de France 2025** (capitaine de l'alliance gagnante, invaincue en 9 matchs) · Vainqueur du Défi Robotique de Valence 2025 · Finaliste France 2026 + Think Award · Inspire Award Londres 2022 · European Premier Event, Eindhoven |
+| [FRITES — FTC 20991](https://ftc-events.firstinspires.org/team/20991) | **Champion de France 2026** (alliance gagnante) + Control Award · Finaliste Valence 2026 + Innovate Award · Vainqueur Londres 2022 |
+| [TheFrenchineers — FTC 20990](https://ftc-events.firstinspires.org/team/20990) | **Inspire Award, championnat de France 2026** — la plus haute distinction du FIRST Tech Challenge · Alliance gagnante France 2025 |
+| [Geekos — FRC 9220](https://frc-events.firstinspires.org/team/9220) | Finaliste régional 2026 + Gracious Professionalism Award · Rising All-Star Award, **New York City Regional 2025** · Imagery Award, **Long Island Regional 2024** |
+
+Le championnat de France FTC n'existe que depuis 2025 : le club a remporté ses deux
+éditions, avec deux équipes différentes.
+
+
 ---
 
 📫 **jerbarth@gmail.com**
