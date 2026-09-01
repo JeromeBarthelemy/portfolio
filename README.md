@@ -79,6 +79,27 @@ statique de documentation. Huit images, toutes depuis `alpine`, jamais le tag `l
 
 ---
 
+## Baguettechs — code du robot FTC, saison DECODE
+**Java · équipe FIRST Tech Challenge 20989 · octobre 2025 – juin 2026 · [dépôt public](https://gitlab.com/ftc-civ/baguettechs/ftc-decode-2026)**
+
+**Le problème.** Un robot de compétition FTC dispose de deux minutes trente par match,
+dont trente secondes entièrement autonomes. Il doit se déplacer avec précision sur un
+terrain qu'il ne voit qu'à travers ses capteurs, et lancer des projectiles vers une cible.
+Aucune reprise possible : le code tourne le jour du match, devant un jury, ou pas du tout.
+
+**Ce que j'ai construit.** Le pilotage en mecanum, en modes robot-centric et field-centric,
+l'orientation par centrale inertielle, la correction de cap, le réglage PID moteur par
+moteur, le contrôle du lanceur, et l'asservissement de sa vitesse de tir par la caméra
+Limelight. 68 des 108 commits du dépôt sont les miens ; le reste est l'œuvre des élèves
+de l'équipe, que j'encadre.
+
+**Ce qui a compté.**
+- **Le matériel ne se comporte jamais comme le modèle.** Un moteur ne tourne pas à la vitesse demandée, une centrale inertielle dérive, un servo ne revient pas exactement en position. La moitié du travail consiste à laisser des constantes réglables plutôt qu'à écrire du code plus élégant.
+- **Le PID individuel par moteur a fini désactivé** : les quatre boucles se battaient entre elles et dégradaient la trajectoire. Un asservissement global de cap, plus simple, s'est révélé plus stable — la solution correcte n'était pas la plus sophistiquée.
+- **Le code est lu et modifié par des lycéens.** Il doit rester compréhensible par quelqu'un qui apprend Java depuis six mois : c'est la contrainte de lisibilité la plus exigeante que j'aie rencontrée.
+
+---
+
 📫 **jerbarth@gmail.com**
 
 📫 **jerbarth@gmail.com** · [LinkedIn](https://www.linkedin.com/in/jerome-barthelemy/)
