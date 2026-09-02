@@ -1,7 +1,7 @@
 # Portfolio — Jérôme Barthélemy
 
 Huit projets, huit problèmes différents. Ce dépôt explique ce qui a été construit, pourquoi,
-et ce que j'en ai tiré. Six des huit pointent vers du code public — il ne contient que mon
+et ce que j'en ai tiré. Sept des huit pointent vers du code public — il ne contient que mon
 propre travail : sujets, moulinettes et supports pédagogiques appartiennent à l'École 42 et
 n'y figurent pas.
 
@@ -126,7 +126,7 @@ statique de documentation. Huit images, toutes depuis `alpine`, jamais le tag `l
 ---
 
 ## Fly-in — routage de flotte sur graphe contraint
-**Python · en solo · avril 2026**
+**Python · en solo · avril 2026 · [code public](https://github.com/JeromeBarthelemy/Fly-in)**
 
 ![25 drones routés sur trois corridors parallèles à travers un graphe de 52 zones](assets/flyin-demo.gif)
 
@@ -144,8 +144,6 @@ tour par tour, avec zoom et navigation avant/arrière.
 - **L'optimalité se vérifie, elle ne se suppose pas.** J'ai écrit un oracle indépendant — un flot maximal sur graphe temporel, sans partager une ligne avec le solveur — qui calcule le plus petit horizon réalisable. Sur huit cartes allant de 4 à 52 zones, les deux coïncident exactement : 4, 3, 4, 7, 6, 13, 16 et 43 tours.
 - **Un oracle qui contredit le code doit d'abord être suspecté.** Le mien annonçait 9 tours là où le solveur en donnait 16 ; après enquête, l'erreur venait de l'oracle, qui ignorait la capacité par défaut de 1 imposée par la spécification. Le désaccord venait du test, pas du testé.
 - **Mesurer le parallélisme demande la bonne métrique.** Compter les zones occupées ou les chemins disjoints ne dit rien : seule la reconstruction de la route de chaque drone, puis le comptage des routes distinctes, répond à la question.
-
-*Code non publié : le dépôt contient le sujet du projet, propriété de l'École 42.*
 
 ---
 
