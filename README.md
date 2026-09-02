@@ -1,7 +1,7 @@
 # Portfolio — Jérôme Barthélemy
 
-Sept projets, sept problèmes différents. Ce dépôt explique ce qui a été construit, pourquoi,
-et ce que j'en ai tiré. Six des sept pointent vers du code public — il ne contient que mon
+Huit projets, huit problèmes différents. Ce dépôt explique ce qui a été construit, pourquoi,
+et ce que j'en ai tiré. Six des huit pointent vers du code public — il ne contient que mon
 propre travail : sujets, moulinettes et supports pédagogiques appartiennent à l'École 42 et
 n'y figurent pas.
 
@@ -124,6 +124,31 @@ statique de documentation. Huit images, toutes depuis `alpine`, jamais le tag `l
 - Un seul port ouvert vers l'extérieur en dehors du FTP, qui n'est pas de l'HTTP et ne peut donc pas passer par le proxy.
 
 ---
+
+## Fly-in — routage de flotte sur graphe contraint
+**Python · en binôme · avril 2026**
+
+![25 drones routés sur trois corridors parallèles à travers un graphe de 52 zones](assets/flyin-demo.gif)
+
+**Le problème.** Amener une flotte de drones d'une zone de départ à une zone d'arrivée
+**en un minimum de tours**, sur un graphe où chaque zone a une capacité, chaque liaison
+un débit, et où certaines zones coûtent deux tours à traverser ou sont interdites.
+
+**Ce que nous avons construit.** Un flot de coût minimal sur un **graphe étendu dans le
+temps** : chaque zone est dédoublée en entrée et sortie, à chaque tour, et l'horizon
+s'allonge d'une couche tant que la flotte n'est pas écoulée. Les types de zone deviennent
+des coûts d'arête, les capacités des bornes de flot. Un visualiseur rejoue la simulation
+tour par tour, avec zoom et navigation avant/arrière.
+
+**Ce qui a compté.**
+- **L'optimalité se vérifie, elle ne se suppose pas.** J'ai écrit un oracle indépendant — un flot maximal sur graphe temporel, sans partager une ligne avec le solveur — qui calcule le plus petit horizon réalisable. Sur huit cartes allant de 4 à 52 zones, les deux coïncident exactement : 4, 3, 4, 7, 6, 13, 16 et 43 tours.
+- **Un oracle qui contredit le code doit d'abord être suspecté.** Le mien annonçait 9 tours là où le solveur en donnait 16 ; après enquête, l'erreur venait de l'oracle, qui ignorait la capacité par défaut de 1 imposée par la spécification. Le désaccord venait du test, pas du testé.
+- **Mesurer le parallélisme demande la bonne métrique.** Compter les zones occupées ou les chemins disjoints ne dit rien : seule la reconstruction de la route de chaque drone, puis le comptage des routes distinctes, répond à la question.
+
+*Code non publié : le dépôt contient le sujet du projet, propriété de l'École 42.*
+
+---
+
 
 ## Pac-Man — machine à états et travail en binôme
 **Python · Pygame · en binôme · mai 2026**
