@@ -16,6 +16,9 @@ connecter à notre serveur sans une ligne de code en commun.
 
 ![Deux clients TAP connectés au même serveur : les événements d'un joueur apparaissent chez l'autre](assets/tap-demo.gif)
 
+*Deux clients connectés au même serveur : ce que fait un joueur parvient à l'autre sous
+forme d'événement poussé par le serveur, seul détenteur de l'état du monde.*
+
 **Ce que nous avons construit :**
 Le protocole RFC étant fourni, nous avons construit un serveur TCP et deux clients, l'un graphique
 et l'autre en ligne de commande. Le serveur possède l'état du monde ; les clients ne font que l'observer. Les événements (un joueur entre
@@ -138,6 +141,10 @@ statique de documentation. Huit images, toutes depuis `alpine`, jamais le tag `l
 **Python · en solo · avril 2026 · [code public](https://github.com/JeromeBarthelemy/Fly-in)**
 
 ![25 drones routés sur trois corridors parallèles à travers un graphe de 52 zones](assets/flyin-demo.gif)
+
+*25 drones sur une carte de 52 zones : la flotte se répartit sur trois corridors à
+capacité restreinte, les emprunte en parallèle du tour 9 au tour 20, puis se regroupe
+dans le goulet final. Résolu en 27 tours.*
 
 **Le problème :**
 Amener une flotte de drones d'une zone de départ à une zone d'arrivée
