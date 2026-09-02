@@ -1,7 +1,7 @@
 # Portfolio — Jérôme Barthélemy
 
 Six projets, six problèmes différents. Ce dépôt explique ce qui a été construit, pourquoi,
-et ce que j'en ai tiré. Cinq des six pointent vers du code public — il ne contient que mon
+et ce que j'en ai tiré. Les six pointent vers du code public — il ne contient que mon
 propre travail : sujets, moulinettes et supports pédagogiques appartiennent à l'École 42 et
 n'y figurent pas.
 
@@ -46,7 +46,7 @@ s'est réellement passé.
 ---
 
 ## Call Me Maybe — appel de fonctions par un petit modèle local
-**Python · en solo · avril 2026**
+**Python · en solo · avril 2026 · [code public](https://github.com/JeromeBarthelemy/CallMeMaybe)**
 
 **Le problème.** Traduire une requête en langage naturel — « quelle est la somme de 2 et
 3 ? » — non pas en réponse, mais en **appel de fonction structuré** : le nom de la fonction
