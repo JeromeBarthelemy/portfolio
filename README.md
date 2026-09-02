@@ -1,7 +1,7 @@
 # Portfolio — Jérôme Barthélemy
 
-Six projets, six problèmes différents. Ce dépôt explique ce qui a été construit, pourquoi,
-et ce que j'en ai tiré. Les six pointent vers du code public — il ne contient que mon
+Sept projets, sept problèmes différents. Ce dépôt explique ce qui a été construit, pourquoi,
+et ce que j'en ai tiré. Six des sept pointent vers du code public — il ne contient que mon
 propre travail : sujets, moulinettes et supports pédagogiques appartiennent à l'École 42 et
 n'y figurent pas.
 
@@ -105,6 +105,34 @@ statique de documentation. Huit images, toutes depuis `alpine`, jamais le tag `l
 - Un seul port ouvert vers l'extérieur en dehors du FTP, qui n'est pas de l'HTTP et ne peut donc pas passer par le proxy.
 
 ---
+
+## Pac-Man — machine à états et travail en binôme
+**Python · Pygame · en binôme · mai 2026**
+
+![Machine à états du jeu : MainMenu, Playing, Paused, GameOver, Victory, HighscoreEntry, LeaderBoard, avec les transitions et leurs conditions](assets/pacman-state-machine.png)
+
+**Le problème.** Un jeu d'arcade n'est pas surtout un problème d'affichage : c'est un
+problème d'états. Menu, partie en cours, pause, mort, victoire, saisie du meilleur score,
+tableau des scores — chacun avec ses transitions, ses conditions de sortie, et ce qu'il
+faut préserver en passant de l'un à l'autre.
+
+**Ce que nous avons construit.** Une machine à états explicite, portée par `App`.
+`GameEngine` n'existe que pendant l'état `PLAYING` et émet à chaque image des événements
+de transition qu'`App` consomme ; `ScreenManager` et `GameEngine` sont frères, jamais
+imbriqués. Le labyrinthe est fourni par `mazegen`, le paquet issu de mon projet A-Maze-ing,
+installé comme dépendance locale. Le jeu est aussi compilé en WebAssembly avec pygbag,
+donc exécutable dans un navigateur sans rien installer.
+
+**Ce qui a compté.**
+- **Le schéma ci-dessus est généré, pas dessiné.** Il vient de sources Graphviz versionnées à côté du code : quand la machine à états change, le schéma suit. Une documentation qui se régénère est une documentation qui reste vraie.
+- **Une branche par auteur, et des pull requests entre nous.** 54 des 91 commits sont les miens ; le reste est celui de mon binôme, et chaque intégration est passée par une revue. Le dépôt conserve les tickets, les revues et le tableau Kanban.
+- **Séparer les états du moteur a payé tard.** Ajouter la pause, la saisie de score et le tableau des scores n'a demandé aucune modification du moteur de jeu — seulement de nouveaux états et de nouvelles transitions.
+
+*Code disponible sur demande : le dépôt contient des ressources graphiques et sonores issues
+du jeu d'arcade original, qui ne m'appartiennent pas.*
+
+---
+
 
 ## Baguettechs — code du robot FTC, saison DECODE
 **Java · équipe FIRST Tech Challenge 20989 · octobre 2025 – juin 2026 · [dépôt public](https://gitlab.com/ftc-civ/baguettechs/ftc-decode-2026)**
