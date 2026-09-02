@@ -7,7 +7,7 @@ Ce dépôt explique ce qui a été construit, pourquoi, et ce que j'en ai tiré.
 ---
 
 ## TAP, un serveur de jeu multijoueur TCP
-**Go · en binôme · juin 2026 · [code public](https://github.com/JeromeBarthelemy/tap-server)** · 118 commits sur 145 commits
+**Go · en binôme · juin 2026 · [code public](https://github.com/JeromeBarthelemy/tap-server)** · 118 commits sur 145
 
 **Le problème :**
 Faire exister plusieurs joueurs dans un même monde partagé, via un
@@ -22,7 +22,7 @@ et l'autre en ligne de commande. Le serveur possède l'état du monde ; les clie
 dans la salle, un combat commence, ...) sont traités de façon asynchrone.
 
 **Ce qui a compté :**
-- choisir l'architecture de nos goroutines pour éviter les data race
+- Choisir l'architecture de nos goroutines pour éviter les data race
 - `go test -race` sur toute la suite
 - Journalisation JSON structurée (`log/slog`) et détection d'abus
 
@@ -34,13 +34,13 @@ dans la salle, un combat commence, ...) sont traités de façon asynchrone.
 **Le problème :**
 Faire résoudre à un modèle de langage de vraies tâches de programmation,
 comme écrire une fonction (MBPP) ou corriger un bug dans un vrai dépôt (SWE-bench), sans
-plantage, ni dépassement de budget (token en entrée et en sortie, nombre d'itérations et temps).
+plantage, ni dépassement de budget (tokens en entrée et en sortie, nombre d'itérations et temps).
 
 **Ce que nous avons construit :**
 Une boucle Pensée → Code → Observation. Le modèle
 n'émet pas d'appel d'outil JSON : il écrit un bloc de code Python, exécuté dans un
-interpréteur restreint (sandbox sécurisé) où les outils MCP sont de simples fonctions.
-La sortie de la sandbox est ensuite renvoyée au modèle après l'avoir rendue la plus lisible possible.
+interpréteur restreint (sandbox sécurisée) où les outils MCP sont de simples fonctions.
+La sortie de la sandbox est ensuite renvoyée au modèle après mise en forme pour la rendre la plus lisible possible.
 L'itération se poursuit jusqu'à obtenir une solution ou épuisement du budget.
 
 **Ce qui a compté :**
@@ -50,9 +50,9 @@ L'itération se poursuit jusqu'à obtenir une solution ou épuisement du budget.
 
 **Ce que nous avons mesuré :**
 - Sur **MBPP** : **233 tâches réussies sur 257** avec `mistral-medium-latest` (notre meilleur modèle gratuit), contre
-205 sur 257 avec `codestral-2508` par exemple. Le harnais est le même, seul le modèle change. Pour la plupart des tâches réussies, nous restons bien en-dessous des plafonds (**2 à 3 itérations sur
+205 sur 257 avec `codestral-2508` par exemple. Le harnais est le même, seul le modèle change. Pour la plupart des tâches réussies, nous restons bien en dessous des plafonds (**2 à 3 itérations sur
 les 10 autorisées** et **quelques secondes sur les 120 autorisées**).
-- Sur **SWE-bench** : 3 des modèles gratuits parviennent à faire un score de 7/7 sur les 7 tâches choisies, là encore en restant le plus souvent très en-deçà des plafonds autorisés.
+- Sur **SWE-bench** : 3 des modèles gratuits parviennent à faire un score de 7/7 sur les 7 tâches choisies, là encore en restant le plus souvent très en deçà des plafonds autorisés.
 
 ---
 
@@ -62,7 +62,7 @@ les 10 autorisées** et **quelques secondes sur les 120 autorisées**).
 **Le problème :**
 Traduire une requête en langage naturel, comme par exemple « Quelle est la somme de 2 et
 3 ? », non pas en réponse, mais en **appel de fonction structuré** : le nom de la fonction
-à invoquer et ses arguments typés, le tout en format JSON valide. Le modèle imposé étant Qwen3-0.6B, un modèle de
+à invoquer et ses arguments typés, le tout en format JSON valide. Le modèle imposé est Qwen3-0.6B, un modèle de
 600 millions de paramètres tournant en local.
 
 **La difficulté :**
@@ -107,10 +107,10 @@ interrogé ; le modèle Qwen3-0.6B rédige ensuite la réponse à partir des seu
 - 43 tests unitaires et mypy en mode strict.
 
 **Ce que j'ai mesuré :**
-Pour la recherche lexicale BM25 sur environ 14 000 fragments,  deux décisions ont été adoptées, chacune
+Pour la recherche lexicale BM25 sur environ 14 000 fragments, deux décisions ont été adoptées, chacune
 validée par la mesure :
 - découper les noms de fichiers, de classes et de fonctions, ainsi `fused_batched_moe` devient `fused batched moe`,
-fait passer le **Recall@5 du code de 55 % à 65 %**
+fait passer le **recall@5 du code de 55 % à 65 %**.
 - router chaque question vers un index dédié au code ou à la documentation plutôt qu'un index unique fait passer celui de la documentation **de 83 % à 91 %**.
 
 ---
@@ -152,7 +152,7 @@ des coûts d'arête, les capacités des bornes de flot. Un visualiseur rejoue la
 au tour par tour ou en version animée (pygame), avec zoom et navigation avant/arrière.
 
 **Ce qui a compté :**
-- Trouver le plus court chemin est facile (Djikstra) et envoyer tous les drones en file indienne sur ce chemin unique s'avère suffisant sur les maps fournies par le sujet. J'ai donc soit modifié les maps existantes, soit récupéré d'autres maps customs faites par d'autres pour vérifier que mon algorithme mettait en œuvre un **véritable parallélisme du flux** quand c'était pertinent.
+- Trouver le plus court chemin est facile (Dijkstra) et envoyer tous les drones en file indienne sur ce chemin unique s'avère suffisant sur les maps fournies par le sujet. J'ai donc soit modifié les maps existantes, soit récupéré des maps personnalisées faites par d'autres pour vérifier que mon algorithme mettait en œuvre un **véritable parallélisme du flux** quand c'était pertinent.
 - L'algorithme étant intrinsèquement du tour par tour, l'**interpolation de la position des drones entre deux zones** pour en faire une animation fluide et navigable dans les deux sens n'a pas été simple.
 
 ---
@@ -180,7 +180,7 @@ Un solveur de plus court chemin, un validateur de sortie qui
 relit le fichier produit, et deux moteurs de rendu : une interface Textual et un
 visualiseur ASCII de repli pour les terminaux sans couleur.
 
-**Ce qui a compté.**
+**Ce qui a compté :**
 - **L'algorithme Kruskal** permet de générer facilement des labyrinthes parfaits, sans aucun biais, avec d'excellentes performances grâce à l'Union-Find et sans risque de heurter la limite de récursivité.
 - **Le validateur lit le fichier, pas la mémoire.** Il re-parse la sortie hexadécimale et vérifie la connexité dessus. Deux bugs d'export sont tombés là, invisibles depuis les structures internes.
 - **Le générateur est un paquet, pas un script.** `mazegen` est packagé et versionné ; deux mois plus tard il est devenu la dépendance qui fournit les labyrinthes de mon Pac-Man, sans une ligne modifiée.
@@ -209,7 +209,7 @@ faut préserver en passant de l'un à l'autre.
 Une machine à états explicite, portée par `App`.
 `GameEngine` n'existe que pendant l'état `PLAYING` et émet à chaque image des événements
 de transition qu'`App` consomme. Le labyrinthe est fourni par `mazegen`, le paquet issu de mon projet A-Maze-ing,
-installé comme dépendance locale. Les animations des menus sont "faites à la main". De nombreux "cheat codes" sont disponibles (invincibilité, vitesse, passage à travers les murs, ...).
+installé comme dépendance locale. Les animations des menus sont «faites à la main». De nombreux «cheat codes» sont disponibles (invincibilité, vitesse, passage à travers les murs, ...).
 
 **Ce qui a compté :**
 - **Le schéma ci-dessus est généré, pas dessiné.** Il vient de sources Graphviz versionnées à côté du code, ce qui permet que quand la machine à états change, le schéma suit.
@@ -222,8 +222,8 @@ du jeu d'arcade original, qui ne m'appartiennent pas. Le jeu peut aussi être te
 ---
 
 
-## Baguettechs, le code de notre robot FTC, saison DECODE
-**Java · équipe FIRST Tech Challenge 20989 · octobre 2025 – juin 2026 · [dépôt public](https://gitlab.com/ftc-civ/baguettechs/ftc-decode-2026)** · 68 commits sur 108 
+## BaguetTechs, le code de notre robot FTC, saison DECODE
+**Java · équipe FIRST Tech Challenge 20989 · octobre 2025 – juin 2026 · [dépôt public](https://gitlab.com/ftc-civ/baguettechs/ftc-decode-2026)** · 68 commits sur 108
 
 [![La finale du championnat de France 2025](https://img.youtube.com/vi/-FN2Mel6wsQ/maxresdefault.jpg)](https://youtu.be/-FN2Mel6wsQ)
 
@@ -257,7 +257,7 @@ aux États-Unis depuis 2019. Résultats vérifiables sur les pages officielles *
 | [TheFrenchineers — FTC 20990](https://ftc-events.firstinspires.org/team/20990) | **Inspire Award (la plus haute distinction du FIRST Tech Challenge), championnat de France 2026** · Alliance gagnante France 2025 |
 | [Geekos — FRC 9220](https://frc-events.firstinspires.org/team/9220) | Finaliste régional 2026 + Gracious Professionalism Award · Rising All-Star Award, **New York City Regional 2025** · Imagery Award, **Long Island Regional 2024** |
 
-Le championnat de France FTC n'existe que depuis 2025. Comme les matchs se jouent en 2vs2, il y a 2 champions de France par an, soit 4 en tout pour le moment dont 3 sont nos 3 équipes de FTC (le club a remporté les deux
+Le championnat de France FTC n'existe que depuis 2025. Comme les matchs se jouent en 2vs2, il y a deux champions de France par an, soit quatre en tout pour le moment dont 3 sont nos 3 équipes de FTC (le club a remporté les deux
 éditions, avec 2 de nos équipes dans la même alliance en 2025).
 
 
