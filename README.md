@@ -14,6 +14,8 @@ n'y figurent pas.
 protocole assez précisément spécifié pour que le client d'une autre équipe puisse se
 connecter à notre serveur sans une ligne de code en commun.
 
+![Deux clients TAP connectés au même serveur : les événements d'un joueur apparaissent chez l'autre](assets/tap-demo.gif)
+
 **Ce que nous avons construit.** Un protocole texte ligne à ligne, rédigé en RFC avant
 la première ligne de code, puis un serveur TCP et deux clients. Le serveur possède
 l'état du monde ; les clients ne font que l'observer. Les événements — un joueur entre
@@ -106,6 +108,8 @@ statique de documentation. Huit images, toutes depuis `alpine`, jamais le tag `l
 
 ## Baguettechs — code du robot FTC, saison DECODE
 **Java · équipe FIRST Tech Challenge 20989 · octobre 2025 – juin 2026 · [dépôt public](https://gitlab.com/ftc-civ/baguettechs/ftc-decode-2026)**
+
+**[▶ La finale du championnat de France 2025](https://youtu.be/-FN2Mel6wsQ)** — chaîne officielle *Robotique FIRST France*.
 
 **Le problème.** Un robot de compétition FTC dispose de deux minutes trente par match,
 dont trente secondes entièrement autonomes. Il doit se déplacer avec précision sur un
