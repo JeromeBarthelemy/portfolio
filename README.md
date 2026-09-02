@@ -126,7 +126,7 @@ statique de documentation. Huit images, toutes depuis `alpine`, jamais le tag `l
 ---
 
 ## Fly-in — routage de flotte sur graphe contraint
-**Python · en binôme · avril 2026**
+**Python · en solo · avril 2026**
 
 ![25 drones routés sur trois corridors parallèles à travers un graphe de 52 zones](assets/flyin-demo.gif)
 
@@ -134,7 +134,7 @@ statique de documentation. Huit images, toutes depuis `alpine`, jamais le tag `l
 **en un minimum de tours**, sur un graphe où chaque zone a une capacité, chaque liaison
 un débit, et où certaines zones coûtent deux tours à traverser ou sont interdites.
 
-**Ce que nous avons construit.** Un flot de coût minimal sur un **graphe étendu dans le
+**Ce que j'ai construit.** Un flot de coût minimal sur un **graphe étendu dans le
 temps** : chaque zone est dédoublée en entrée et sortie, à chaque tour, et l'horizon
 s'allonge d'une couche tant que la flotte n'est pas écoulée. Les types de zone deviennent
 des coûts d'arête, les capacités des bornes de flot. Un visualiseur rejoue la simulation
