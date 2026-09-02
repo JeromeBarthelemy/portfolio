@@ -149,7 +149,7 @@ tour par tour, avec zoom et navigation avant/arrière.
 
 
 ## A-Maze-ing — génération de labyrinthes et rendu terminal
-**Python · Textual · en binôme · mars 2026**
+**Python · Textual · en binôme · mars 2026 · [code public](https://github.com/JeromeBarthelemy/A-Maze-ing)** — 73 des 78 commits sont les miens
 
 ![Le générateur de labyrinthes en fonctionnement : régénération, chemin le plus court, tailles et thèmes successifs](assets/maze-demo.gif)
 
@@ -174,10 +174,7 @@ visualiseur ASCII de repli pour les terminaux sans couleur.
 - **Le validateur lit le fichier, pas la mémoire.** Il re-parse la sortie hexadécimale et vérifie la connexité dessus. Deux bugs d'export sont tombés là, invisibles depuis les structures internes.
 - **Le générateur est un paquet, pas un script.** `mazegen` est packagé et versionné ; deux mois plus tard il est devenu la dépendance qui fournit les labyrinthes de mon Pac-Man, sans une ligne modifiée.
 
-74 des 83 commits sont les miens. 2 700 lignes de Python, suite de tests pytest sur le
-modèle de configuration, le générateur et les outils.
-
-*Code disponible sur demande : le dépôt contient les sujets fournis par l'école.*
+2 700 lignes de Python, suite de tests pytest sur le modèle de configuration, le générateur et les outils.
 
 ---
 
