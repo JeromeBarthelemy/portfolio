@@ -45,6 +45,11 @@ s'est réellement passé.
 - **Chaque plafond est dur** : itérations, tokens en entrée et en sortie, temps réel. La boucle réserve de quoi tenter une dernière soumission plutôt que de mourir en pleine réflexion.
 - Agnostique du fournisseur : un endpoint OpenAI-compatible absent de la config ne demande aucune modification de code, seulement une URL.
 
+**Mesuré.** Sur MBPP, **233 tâches réussies sur 257** avec `mistral-medium-latest`, contre
+205 sur 257 avec `codestral-2508` — le harnais est le même, seul le modèle change. Sur une
+série de dix tâches passée sous les plafonds réels, la boucle consomme **5 itérations sur
+les 10 autorisées** et **19,3 secondes sur les 120** : la marge est mesurée, pas espérée.
+
 ---
 
 ## Call Me Maybe — appel de fonctions par un petit modèle local
@@ -69,6 +74,12 @@ nombre. La fiabilité passe d'environ 30 % à la quasi-perfection.
 - Un modèle de 0,6 milliard de paramètres tournant sur CPU rend le problème intéressant : sans marge de manœuvre, la structure doit venir du code, pas de la puissance du modèle.
 - C'est le même déplacement que dans Agent Smith : ne jamais faire confiance à la sortie du modèle, toujours la contraindre puis la vérifier.
 
+**Mesuré.** **100 % de JSON analysable** — le décodage sous contrainte le garantit par
+construction, contre environ 30 % en sollicitant naïvement le modèle. **Plus de 90 % de
+sélections de fonction et d'extractions d'arguments correctes.** L'ensemble des prompts est
+traité en moins de cinq minutes sur une machine ordinaire, le goulot d'étranglement étant
+l'absence de cache KV dans le SDK.
+
 ---
 
 ## RAG against the machine — recherche augmentée
@@ -85,6 +96,14 @@ interrogé ; le modèle Qwen3-0.6B rédige la réponse à partir des seuls extra
 - La qualité de la recherche est une métrique, pas une impression : *recall@k* contre un jeu de référence, mesuré à chaque changement de stratégie de découpage.
 - Séparer récupération et génération : quand la réponse est fausse, on sait laquelle des deux moitiés a échoué.
 - 43 tests unitaires et mypy en mode strict sur un projet solo — c'est là que ça se relâche d'habitude.
+
+**Mesuré.** Recherche lexicale BM25 sur environ 14 000 fragments. Deux décisions, chacune
+validée par la mesure : découper les identifiants (`fused_batched_moe` → `fused batched moe`)
+fait passer le **Recall@5 du code de 55 % à 65 %** ; router chaque question vers un index
+dédié plutôt qu'un index unique fait passer celui de la documentation **de 83 % à 91 %**.
+Une troisième piste — fusionner les deux index — a été **rejetée après mesure**, les scores
+n'étant pas comparables d'un corpus à l'autre. La couverture du jeu de référence est de
+100 %, donc le découpage n'est jamais le facteur limitant : seul le classement compte.
 
 ---
 
@@ -137,7 +156,9 @@ du jeu d'arcade original, qui ne m'appartiennent pas.*
 ## Baguettechs — code du robot FTC, saison DECODE
 **Java · équipe FIRST Tech Challenge 20989 · octobre 2025 – juin 2026 · [dépôt public](https://gitlab.com/ftc-civ/baguettechs/ftc-decode-2026)**
 
-**[▶ La finale du championnat de France 2025](https://youtu.be/-FN2Mel6wsQ)** — chaîne officielle *Robotique FIRST France*.
+[![La finale du championnat de France 2025](https://img.youtube.com/vi/-FN2Mel6wsQ/maxresdefault.jpg)](https://youtu.be/-FN2Mel6wsQ)
+
+*La finale du championnat de France 2025, sur la chaîne officielle Robotique FIRST France.*
 
 **Le problème.** Un robot de compétition FTC dispose de deux minutes trente par match,
 dont trente secondes entièrement autonomes. Il doit se déplacer avec précision sur un
