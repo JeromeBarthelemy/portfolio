@@ -1,7 +1,7 @@
 # Portfolio — Jérôme Barthélemy
 
-Huit projets, huit problèmes différents. Ce dépôt explique ce qui a été construit, pourquoi,
-et ce que j'en ai tiré. Sept des huit pointent vers du code public — il ne contient que mon
+Neuf projets, neuf problèmes différents. Ce dépôt explique ce qui a été construit, pourquoi,
+et ce que j'en ai tiré. Sept des neuf pointent vers du code public — il ne contient que mon
 propre travail : sujets, moulinettes et supports pédagogiques appartiennent à l'École 42 et
 n'y figurent pas.
 
@@ -148,8 +148,48 @@ tour par tour, avec zoom et navigation avant/arrière.
 ---
 
 
+## A-Maze-ing — génération de labyrinthes et rendu terminal
+**Python · Textual · en binôme · mars 2026**
+
+![Le générateur de labyrinthes en fonctionnement : régénération, chemin le plus court, tailles et thèmes successifs](assets/maze-demo.gif)
+
+*Le visualiseur Textual : régénération, affichage du chemin le plus court, taille du
+labyrinthe et thème changés à la volée — et le motif `42` réservé au centre dès que la
+place le permet.*
+
+**Le problème.** Générer un labyrinthe valide à partir d'un fichier de configuration,
+l'exporter dans un format hexadécimal imposé, et le rendre lisible. « Valide » est la
+partie coûteuse : en mode parfait il doit exister exactement un chemin entre l'entrée et
+la sortie, et le motif `42` réservé au centre ne doit ni couper le graphe ni créer de
+cycle.
+
+**Ce que nous avons construit.** Deux algorithmes de génération interchangeables —
+parcours en profondeur avec retour arrière, et Kruskal sur les arêtes — au-dessus d'une
+même structure de grille. Un solveur de plus court chemin, un validateur de sortie qui
+relit le fichier produit, et deux moteurs de rendu : une interface Textual et un
+visualiseur ASCII de repli pour les terminaux sans couleur.
+
+**Ce qui a compté.**
+- **La graine rend tout reproductible.** Un bug de génération sur un labyrinthe de 60×40 se rejoue à l'identique à partir d'une seule ligne de configuration — c'est ce qui a rendu les cas limites du motif `42` débogables au lieu d'être anecdotiques.
+- **Le validateur lit le fichier, pas la mémoire.** Il re-parse la sortie hexadécimale et vérifie la connexité dessus. Deux bugs d'export sont tombés là, invisibles depuis les structures internes.
+- **Le générateur est un paquet, pas un script.** `mazegen` est packagé et versionné ; deux mois plus tard il est devenu la dépendance qui fournit les labyrinthes de mon Pac-Man, sans une ligne modifiée.
+
+74 des 83 commits sont les miens. 2 700 lignes de Python, suite de tests pytest sur le
+modèle de configuration, le générateur et les outils.
+
+*Code disponible sur demande : le dépôt contient les sujets fournis par l'école.*
+
+---
+
+
 ## Pac-Man — machine à états et travail en binôme
 **Python · Pygame · en binôme · mai 2026**
+
+![Trois niveaux de Pac-Man : le labyrinthe est régénéré et agrandi à chaque niveau, avec le 42 toujours lisible au centre](assets/pacman-demo.gif)
+
+*Niveaux 1, 2 et 3 : le labyrinthe n'est pas dessiné à la main. Il est généré à chaque
+niveau par `mazegen`, plus grand et plus dense à chaque fois, avec le motif `42` réservé
+au centre.*
 
 ![Machine à états du jeu : MainMenu, Playing, Paused, GameOver, Victory, HighscoreEntry, LeaderBoard, avec les transitions et leurs conditions](assets/pacman-state-machine.png)
 
