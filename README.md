@@ -139,8 +139,7 @@ faut préserver en passant de l'un à l'autre.
 `GameEngine` n'existe que pendant l'état `PLAYING` et émet à chaque image des événements
 de transition qu'`App` consomme ; `ScreenManager` et `GameEngine` sont frères, jamais
 imbriqués. Le labyrinthe est fourni par `mazegen`, le paquet issu de mon projet A-Maze-ing,
-installé comme dépendance locale. Le jeu est aussi compilé en WebAssembly avec pygbag,
-donc exécutable dans un navigateur sans rien installer.
+installé comme dépendance locale.
 
 **Ce qui a compté.**
 - **Le schéma ci-dessus est généré, pas dessiné.** Il vient de sources Graphviz versionnées à côté du code : quand la machine à états change, le schéma suit. Une documentation qui se régénère est une documentation qui reste vraie.
