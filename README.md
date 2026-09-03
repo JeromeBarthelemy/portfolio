@@ -1,8 +1,8 @@
 # Portfolio — Jérôme Barthélemy
 
-Neuf projets, huit réalisés à 42 et un au sein de mon club de robotique.
+Neuf de mes projets, huit réalisés à 42 et un au sein de mon club de robotique.
 
-Ce dépôt explique ce qui a été construit, pourquoi, et ce que j'en ai tiré.
+Ce dépôt explique ce qui a été construit, pourquoi, et ce que j'en ai retiré.
 
 ---
 
@@ -232,9 +232,10 @@ du jeu d'arcade original, qui ne m'appartiennent pas. Le jeu peut aussi être te
 ## BaguetTechs, le code de notre robot FTC, saison DECODE
 **Java · équipe FIRST Tech Challenge 20989 · octobre 2025 – juin 2026 · [dépôt public](https://gitlab.com/ftc-civ/baguettechs/ftc-decode-2026)** · 68 commits sur 108
 
-[![La finale du championnat de France 2025](https://img.youtube.com/vi/-FN2Mel6wsQ/maxresdefault.jpg)](https://youtu.be/-FN2Mel6wsQ)
+[![Vignette de la vidéo de la finale du championnat de France 2025, avec bouton de lecture](assets/ftc-final-2025.jpg)](https://youtu.be/-FN2Mel6wsQ)
 
-*La finale du championnat de France 2025, sur la chaîne officielle Robotique FIRST France.*
+*▶ **Vidéo** — la finale du championnat de France 2025, sur la chaîne officielle Robotique
+FIRST France. [Regarder sur YouTube](https://youtu.be/-FN2Mel6wsQ).*
 
 **Le problème :**
 Un robot de compétition FTC dispose de deux minutes trente par match,
