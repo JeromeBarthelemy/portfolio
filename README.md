@@ -10,7 +10,7 @@ Ce dépôt explique ce qui a été construit, pourquoi, et ce que j'en ai tiré.
 **Go · en binôme · juin 2026 · [code public](https://github.com/JeromeBarthelemy/tap-server)** · 118 commits sur 145
 
 **Le problème :**
-Faire exister plusieurs joueurs dans un même monde partagé, via un
+Faire exister plusieurs joueurs dans un même monde partagé, en implémentant un
 protocole assez précisément spécifié pour qu'un autre client développé séparément selon le même protocole puisse se
 connecter à notre serveur sans une ligne de code en commun.
 
@@ -254,8 +254,9 @@ Limelight.
 
 ### Palmarès du club Robotique CIV
 
-Plus de 70 lycéens, quatre équipes, engagées au Royaume-Uni, en France, aux Pays-Bas, au Canada et
-aux États-Unis depuis 2019. Résultats vérifiables sur les pages officielles *FIRST*.
+Une association de 60 lycéens en quatre équipes, encadrés par une dizaine de mentors adultes — professeurs et
+ingénieurs de nos entreprises partenaires — engagée au Royaume-Uni, en France, aux Pays-Bas, au Canada et aux
+États-Unis depuis 2019, sur un budget de fonctionnement d'environ 40 000 € par an. Résultats vérifiables sur les pages officielles *FIRST*.
 
 | Équipe | Résultats principaux |
 |---|---|
