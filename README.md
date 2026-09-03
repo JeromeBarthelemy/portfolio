@@ -255,9 +255,10 @@ Limelight.
 
 ### Palmarès du club Robotique CIV
 
-Une association de 60 lycéens en quatre équipes, encadrés par une dizaine de mentors adultes — professeurs et
-ingénieurs de nos entreprises partenaires — engagée au Royaume-Uni, en France, aux Pays-Bas, au Canada et aux
-États-Unis depuis 2019, sur un budget de fonctionnement d'environ 40 000 € par an. Résultats vérifiables sur les pages officielles *FIRST*.
+Club co-fondé en 2019 et constitué en association en 2020. Aujourd'hui 60 lycéens en quatre équipes, encadrés
+par une dizaine de mentors adultes — professeurs et ingénieurs de nos entreprises partenaires — engagés au
+Royaume-Uni, en France, aux Pays-Bas, au Canada et aux États-Unis, sur un budget de fonctionnement d'environ
+40 000 € par an. Résultats vérifiables sur les pages officielles *FIRST*.
 
 | Équipe | Résultats principaux |
 |---|---|
