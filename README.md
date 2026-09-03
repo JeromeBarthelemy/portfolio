@@ -137,7 +137,7 @@ statique de documentation. Huit images, toutes depuis `alpine`, jamais le tag `l
 
 ---
 
-## Fly-in, un routage de flotte sur graphe contraint
+## Fly-in, une simulation de flotte sur graphe contraint
 **Python · en solo · avril 2026 · [code public](https://github.com/JeromeBarthelemy/Fly-in)**
 
 ![25 drones routés sur trois corridors parallèles à travers un graphe de 52 zones](assets/flyin-demo.gif)
@@ -146,24 +146,50 @@ statique de documentation. Huit images, toutes depuis `alpine`, jamais le tag `l
 capacité restreinte, les emprunte en parallèle du tour 9 au tour 20, puis se regroupe
 dans le goulet final. Résolu en 27 tours.*
 
-**Le problème :**
-Amener une flotte de drones d'une zone de départ à une zone d'arrivée
-**en un minimum de tours**, sur un graphe où chaque zone a une capacité, chaque liaison
-un débit, et où certaines zones coûtent deux tours à traverser ou sont interdites.
+**Le système modélisé :**
+Une flotte de drones doit rejoindre une zone d'arrivée **en un minimum de tours**, sur un
+graphe où chaque zone a une capacité d'accueil, chaque liaison un débit, et où certaines
+zones coûtent deux tours à traverser ou sont interdites. Les drones avancent simultanément :
+le système est discret en temps et contraint en ressources.
 
-**Ce que j'ai construit :**
-Un flot de coût minimal sur un **graphe étendu dans le
-temps** : chaque zone est dédoublée en entrée et sortie, à chaque tour, et l'horizon
-s'allonge d'une couche tant que la flotte n'est pas écoulée. Les types de zone deviennent
-des coûts d'arête, les capacités des bornes de flot. Un visualiseur rejoue la simulation
-au tour par tour ou en version animée (pygame), avec zoom et navigation avant/arrière.
+**La modélisation :**
+Le temps est déplié dans la structure elle-même. Chaque zone est dédoublée en entrée et
+sortie **à chaque pas de temps**, et l'horizon s'allonge d'une couche tant que la flotte
+n'est pas écoulée — un **graphe étendu dans le temps**. Les types de zone deviennent des
+coûts d'arête, les capacités des bornes de flot, et le problème se ramène à un **flot de
+coût minimal**, résolu exactement plutôt qu'approché.
 
 **Ce qui a compté :**
-- Trouver le plus court chemin est facile (Dijkstra) et envoyer tous les drones en file indienne sur ce chemin unique s'avère suffisant sur les maps fournies par le sujet. J'ai donc soit modifié les maps existantes, soit récupéré des maps personnalisées faites par d'autres pour vérifier que mon algorithme mettait en œuvre un **véritable parallélisme du flux** quand c'était pertinent.
-- L'algorithme étant intrinsèquement du tour par tour, l'**interpolation de la position des drones entre deux zones** pour en faire une animation fluide et navigable dans les deux sens n'a pas été simple.
+- **L'optimalité est garantie par construction.** Le flot de coût minimal est un algorithme exact, pas une heuristique : le nombre de tours obtenu est le minimum, il n'y a rien à vérifier a posteriori.
+- **Construire des cas d'essai qui mettent le modèle en difficulté.** Les cartes du sujet se résolvent trivialement en file indienne sur un plus court chemin (Dijkstra) : je les ai modifiées et j'ai récupéré des cartes tierces, faute de quoi le **parallélisme du flux** n'aurait jamais été exercé.
+- **Le post-traitement.** L'algorithme est discret ; l'animation fluide et navigable dans les deux sens suppose une **interpolation des états intermédiaires** entre deux pas de temps, ce qui n'a pas été simple.
+- *C'est une simulation discrète et combinatoire, pas une simulation physique : ni équation aux dérivées partielles, ni maillage.*
 
 ---
 
+
+## Codexion, une simulation à événements discrets d'un système concurrent
+**C · en solo · mai 2026**
+
+**Le système modélisé :**
+Des agents autonomes se partagent des ressources en nombre insuffisant — dans la fiction du
+sujet, des développeurs et deux clés USB nécessaires pour compiler. Chaque agent doit
+acquérir deux ressources pour progresser, et **meurt s'il en est privé trop longtemps**. La
+famine et l'interblocage ne sont pas des bogues à éviter : ce sont les conditions d'échec du
+modèle, vérifiées à l'exécution.
+
+**Ce que j'ai construit :**
+Un moteur en **threads POSIX**, mutex et variables de condition. Chaque ressource possède sa
+**file d'attente**, dont la politique d'ordonnancement est **commutable entre FIFO et EDF**
+(*Earliest Deadline First* : le prochain servi est celui dont l'échéance de mort est la plus
+proche).
+
+**Ce qui a compté :**
+- **Deux politiques d'ordonnancement interchangeables sur un même modèle.** C'est ce qui transforme le projet en instrument de mesure : on observe l'effet d'EDF sur la survie des agents au lieu de le postuler.
+- **Les conditions d'échec sont dans le modèle, pas dans les tests.** Un agent qui meurt de famine est un résultat de simulation, pas un plantage.
+- La discipline C du cursus : zéro fuite, `-Wall -Wextra -Werror`, la Norme.
+
+---
 
 ## A-Maze-ing, génération de labyrinthes et rendu dans le terminal
 **Python · Textual · en binôme · mars 2026 · [code public](https://github.com/JeromeBarthelemy/A-Maze-ing)** · 73 commits sur 78
