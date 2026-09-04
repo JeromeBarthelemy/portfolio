@@ -256,7 +256,7 @@ du jeu d'arcade original, qui ne m'appartiennent pas. Le jeu peut aussi être te
 
 
 ## BaguetTechs, le code de notre robot FTC, saison DECODE
-**Java · équipe FIRST Tech Challenge 20989 · octobre 2025 – juin 2026 · [dépôt public](https://gitlab.com/ftc-civ/baguettechs/ftc-decode-2026)** · 68 commits sur 108
+**Java · équipe FIRST Tech Challenge 20989 · saison DECODE, octobre 2025 – juin 2026 · [dépôt public](https://gitlab.com/ftc-civ/baguettechs/ftc-decode-2026)**
 
 [![Vignette de la vidéo de la finale du championnat de France 2025, avec bouton de lecture](assets/ftc-final-2025.jpg)](https://youtu.be/-FN2Mel6wsQ)
 
@@ -283,12 +283,12 @@ Limelight.
 
 Club co-fondé en 2019 et constitué en association en 2020. Aujourd'hui 60 lycéens en quatre équipes, encadrés
 par une dizaine de mentors adultes — professeurs et ingénieurs de nos entreprises partenaires — engagés au
-Royaume-Uni, en France, aux Pays-Bas, au Canada et aux États-Unis, sur un budget de fonctionnement d'environ
-40 000 € par an. Résultats vérifiables sur les pages officielles *FIRST*.
+Royaume-Uni, en France, aux Pays-Bas, au Canada et aux États-Unis, sur un budget de fonctionnement de plusieurs
+dizaines de milliers d'euros par an. Résultats vérifiables sur les pages officielles *FIRST*.
 
 | Équipe | Résultats principaux |
 |---|---|
-| [BaguetTechs — FTC 20989](https://ftc-events.firstinspires.org/team/20989) | **Champion de France 2025** (capitaine de l'alliance gagnante, invaincue en saison régulière) · Finaliste France 2026 + Think Award · Inspire Award Londres 2022 · European Premier Event, Eindhoven |
+| [BaguetTechs — FTC 20989](https://ftc-events.firstinspires.org/team/20989) | **Champion de France 2025** (capitaine de l'alliance gagnante, invaincue sur 17 matchs, régionale comprise) · Finaliste France 2026 + Think Award · Inspire Award Londres 2022 · European Premier Event, Eindhoven |
 | [FRITES — FTC 20991](https://ftc-events.firstinspires.org/team/20991) | **Champion de France 2026** (alliance gagnante) + Control Award · Finaliste Valence 2026 + Innovate Award · Vainqueur Londres 2022 |
 | [TheFrenchineers — FTC 20990](https://ftc-events.firstinspires.org/team/20990) | **Inspire Award (la plus haute distinction du FIRST Tech Challenge), championnat de France 2026** · Alliance gagnante France 2025 |
 | [Geekos — FRC 9220](https://frc-events.firstinspires.org/team/9220) | Finaliste régional 2026 + Gracious Professionalism Award · Rising All-Star Award, **New York City Regional 2025** · Imagery Award, **Long Island Regional 2024** |
